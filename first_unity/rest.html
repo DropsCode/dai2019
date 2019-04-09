@@ -1,0 +1,29 @@
+<html>
+	<head>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<style>
+			body{background-color: black}
+			.pink-style{
+				color: pink
+			}
+		</style>
+	</head>
+		
+		
+	<body>
+		<h1 class="pink-style"></h1>
+		<button id="joke-button">Get a joke</button>
+		<script>
+			$(document).ready(function(){
+				$("#joke-button").on("click", function(){
+					$.get(
+					"https://api.chucknorris.io/jokes/random",
+					function(resp){
+						var joke = resp.value
+						$("h1").text(joke)
+					})
+				})
+			})
+		</script>
+	</body>
+</html>
